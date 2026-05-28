@@ -1,0 +1,178 @@
+.resultsPage {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: var(--spacing-xl);
+}
+
+.resultCard {
+    background-color: white;
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    max-width: 700px;
+    width: 100%;
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+}
+
+.resultHeader {
+    margin-bottom: var(--spacing-xl);
+}
+
+.resultIcon {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-md);
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.resultTitle {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.boardSizeInfo {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    margin-top: var(--spacing-sm);
+}
+
+.boardSizeInfo strong {
+    color: var(--color-primary);
+}
+
+.resultDetails {
+    margin-bottom: var(--spacing-xl);
+}
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.statCard {
+    background-color: var(--color-bg-secondary);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.statCard:hover {
+    transform: translateY(-2px);
+}
+
+.statValue {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.statLabel {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Видаляємо стилі для scoreboard, оскільки він більше не використовується */
+
+.historySection {
+    margin-top: var(--spacing-xl);
+}
+
+.historySection h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.historyList {
+    min-height: 120px;
+    max-height: 200px;
+    overflow-y: auto;
+    border-radius: var(--radius-md);
+    border: 1px solid #dee2e6;
+}
+
+.historyItem {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-bottom: 1px solid #dee2e6;
+    transition: background-color 0.2s;
+    gap: var(--spacing-sm);
+}
+
+.historyItem:last-child {
+    border-bottom: none;
+}
+
+.historyItem:hover {
+    background-color: var(--color-bg-secondary);
+}
+
+.gameDate {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+}
+
+.gameResult {
+    font-weight: 500;
+    color: var(--color-primary);
+    text-align: center;
+}
+
+.gameMoves {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    text-align: center;
+}
+
+.gameBoardSize {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    text-align: right;
+    font-weight: 600;
+}
+
+.noHistory {
+    text-align: center;
+    color: var(--color-text-muted);
+    font-style: italic;
+    padding: var(--spacing-xl);
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+@media (min-width: 768px) {
+    .actions {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.footerNote {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    border-top: 1px solid #dee2e6;
+    padding-top: var(--spacing-md);
+    text-align: center;
+}
