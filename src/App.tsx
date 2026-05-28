@@ -1,26 +1,30 @@
 import React, { useState } from 'react';
-import { Layout } from './components';
+import { Layout, CookieConsent } from './components';
 import {
   StartPage,
   GamePage,
   ResultsPage,
   StatisticsPage,
-  SettingsPage
+  SettingsPage,
+  PrivacyPolicyPage
 } from './pages';
 import { GameResult } from './types/game.types';
+import { useCookieConsent } from './hooks/useCookieConsent';
 import './styles/globals.css';
 import './styles/theme.css';
 
-type Page = 'start' | 'game' | 'results' | 'statistics' | 'settings';
+type Page = 'start' | 'game' | 'results' | 'statistics' | 'settings' | 'privacy';
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>('start');
   const [gameResult, setGameResult] = useState<GameResult | null>(null);
+  const { consent, isDecided, setConsent, resetConsent } = useCookieConsent();
 
   const handleStartGame = () => setCurrentPage('game');
   const handleReturnToMenu = () => setCurrentPage('start');
   const handleOpenSettings = () => setCurrentPage('settings');
   const handleOpenStatistics = () => setCurrentPage('statistics');
+  const handleOpenPrivacyPolicy = () => setCurrentPage('privacy');
 
   const handleGameEnd = (result: GameResult) => {
     setGameResult(result);
@@ -28,6 +32,10 @@ const App: React.FC = () => {
   };
 
   const handlePlayAgain = () => setCurrentPage('game');
+
+  const handleResetCookies = () => {
+    resetConsent();
+  };
 
   const renderPage = () => {
     switch (currentPage) {
@@ -68,6 +76,13 @@ const App: React.FC = () => {
                 onReturn={handleReturnToMenu}
             />
         );
+      case 'privacy':
+        return (
+            <PrivacyPolicyPage
+                onReturn={handleReturnToMenu}
+                onResetCookies={handleResetCookies}
+            />
+        );
       default:
         return (
             <StartPage
@@ -79,7 +94,17 @@ const App: React.FC = () => {
     }
   };
 
-  return <Layout>{renderPage()}</Layout>;
+  return (
+    <Layout onOpenPrivacyPolicy={handleOpenPrivacyPolicy}>
+      {renderPage()}
+      {!isDecided && currentPage !== 'privacy' && (
+        <CookieConsent
+          onConsent={setConsent}
+          onOpenPrivacyPolicy={handleOpenPrivacyPolicy}
+        />
+      )}
+    </Layout>
+  );
 };
 
 export default App;

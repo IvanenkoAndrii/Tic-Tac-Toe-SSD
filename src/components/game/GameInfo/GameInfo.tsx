@@ -15,6 +15,7 @@ interface GameInfoProps {
     onRestart: () => void;
     onResetStats?: () => void;
     onSettingsOpen?: () => void;
+    isSettingsDisabled?: boolean;
 }
 
 const GameInfo: React.FC<GameInfoProps> = ({
@@ -26,6 +27,7 @@ const GameInfo: React.FC<GameInfoProps> = ({
                                                onRestart,
                                                onResetStats,
                                                onSettingsOpen,
+                                               isSettingsDisabled,
                                            }) => {
     const getStatusMessage = () => {
         if (winner) {
@@ -39,7 +41,6 @@ const GameInfo: React.FC<GameInfoProps> = ({
         if (isDraw) {
             return (
                 <>
-                    <span className={styles.drawSymbol}>🤝</span>
                     <span>Нічия!</span>
                 </>
             );
@@ -81,7 +82,6 @@ const GameInfo: React.FC<GameInfoProps> = ({
                     onClick={onRestart}
                     aria-label="Почати нову гру"
                 >
-                    <span className={styles.buttonIcon}>🔄</span>
                     <span>Нова гра</span>
                 </button>
 
@@ -91,7 +91,6 @@ const GameInfo: React.FC<GameInfoProps> = ({
                         onClick={onResetStats}
                         aria-label="Скинути статистику"
                     >
-                        <span className={styles.buttonIcon}>📊</span>
                         <span>Скинути статистику</span>
                     </button>
                 )}
@@ -99,9 +98,10 @@ const GameInfo: React.FC<GameInfoProps> = ({
                 <button
                     className={`${styles.controlButton} ${styles.secondary}`}
                     onClick={onSettingsOpen}
+                    disabled={isSettingsDisabled}
+                    title={isSettingsDisabled ? "Налаштування недоступні при відхилених cookie" : undefined}
                     aria-label="Відкрити налаштування"
                 >
-                    <span className={styles.buttonIcon}>⚙️</span>
                     <span>Налаштування</span>
                 </button>
             </div>

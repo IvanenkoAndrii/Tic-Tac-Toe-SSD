@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Board, GameInfo } from '../../components/game';
 import { GameEndModal } from '../../components/common/GameEndModal';
-import { useGameLogic, useGameStorage } from '../../hooks';
+import { useGameLogic, useGameStorage, useCookieConsent } from '../../hooks';
 import { useGameSettings } from '../../hooks/useGameSettings';
 import { Modal } from '../../components/common/Modal';
 import { SettingsForm } from '../../components/common/SettingsForm';
@@ -24,6 +24,7 @@ const GamePage: React.FC<GamePageProps> = ({ onReturnToMenu, onGameEnd }) => {
     } = useGameLogic(settings);
 
     const { saveGameResult } = useGameStorage();
+    const { consent } = useCookieConsent();
 
     const [showGameEndModal, setShowGameEndModal] = useState(false);
     const [showSettingsModal, setShowSettingsModal] = useState(false);
@@ -87,6 +88,7 @@ const GamePage: React.FC<GamePageProps> = ({ onReturnToMenu, onGameEnd }) => {
                         playerStats={playerStats}  // ДОДАНО цей рядок
                         onRestart={restartGame}
                         onSettingsOpen={() => setShowSettingsModal(true)}
+                        isSettingsDisabled={consent === 'declined'}
                     />
                     <Board
                         board={gameState.board}

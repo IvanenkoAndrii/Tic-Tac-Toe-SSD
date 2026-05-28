@@ -7,6 +7,7 @@ import {
     PlayerStats,
     GameSettings
 } from '../types/game.types';
+import { getCookie, setCookie, deleteCookie } from '../utils/cookies';
 
 const WINNING_COMBINATIONS_3x3 = [
     [[0, 0], [0, 1], [0, 2]],
@@ -87,7 +88,7 @@ export const useGameLogic = (settings: GameSettings = DEFAULT_SETTINGS) => {
     }));
 
     const [playerStats, setPlayerStats] = useState<PlayersStats>(() => {
-        const savedStats = localStorage.getItem(PLAYER_STATS_STORAGE_KEY);
+        const savedStats = getCookie(PLAYER_STATS_STORAGE_KEY);
         if (savedStats) {
             try {
                 return JSON.parse(savedStats);
@@ -102,7 +103,10 @@ export const useGameLogic = (settings: GameSettings = DEFAULT_SETTINGS) => {
     });
 
     useEffect(() => {
-        localStorage.setItem(PLAYER_STATS_STORAGE_KEY, JSON.stringify(playerStats));
+        const consent = getCookie('cookieConsent');
+        if (consent === 'all') {
+            setCookie(PLAYER_STATS_STORAGE_KEY, JSON.stringify(playerStats), 30);
+        }
     }, [playerStats]);
 
     useEffect(() => {
@@ -193,7 +197,14 @@ export const useGameLogic = (settings: GameSettings = DEFAULT_SETTINGS) => {
             O: { wins: 0, losses: 0, draws: 0, totalMoves: 0 },
         };
         setPlayerStats(emptyStats);
-        localStorage.setItem(PLAYER_STATS_STORAGE_KEY, JSON.stringify(emptyStats));
+        
+        const consent = getCookie('cookieConsent');
+        if (consent === 'all') {
+            setCookie(PLAYER_STATS_STORAGE_KEY, JSON.stringify(emptyStats), 30);
+        } else {
+            deleteCookie(PLAYER_STATS_STORAGE_KEY);
+        }
+        
         restartGame();
     }, [restartGame]);
 

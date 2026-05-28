@@ -64,6 +64,7 @@ export interface ButtonProps {
     size?: 'small' | 'medium' | 'large';
     disabled?: boolean;
     type?: 'button' | 'submit' | 'reset';
+    title?: string;
 }
 
 export interface CellProps {

@@ -4,9 +4,10 @@ import styles from './Layout.module.css';
 
 interface LayoutProps {
     children: ReactNode;
+    onOpenPrivacyPolicy?: () => void;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ children, onOpenPrivacyPolicy }) => {
     return (
         <div className={styles.layout}>
             <Header />
@@ -25,6 +26,15 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     <p className={styles.footerSubtext}>
                         React + TypeScript + CSS Modules
                     </p>
+                    {onOpenPrivacyPolicy && (
+                        <button
+                            id="footer-privacy-link"
+                            className={styles.privacyLink}
+                            onClick={onOpenPrivacyPolicy}
+                        >
+                            Політика конфіденційності
+                        </button>
+                    )}
                 </div>
             </footer>
         </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { GameSettings } from '../types/game.types';
+import { getCookie, setCookie, deleteCookie } from '../utils/cookies';
 
 const SETTINGS_STORAGE_KEY = 'tic-tac-toe-settings';
 
@@ -12,7 +13,7 @@ export const useGameSettings = () => {
     const [isInitialized, setIsInitialized] = useState(false);
 
     useEffect(() => {
-        const savedSettings = localStorage.getItem(SETTINGS_STORAGE_KEY);
+        const savedSettings = getCookie(SETTINGS_STORAGE_KEY);
         if (savedSettings) {
             try {
                 const parsedSettings = JSON.parse(savedSettings);
@@ -21,7 +22,7 @@ export const useGameSettings = () => {
                 });
             } catch {
                 console.error('Помилка завантаження налаштувань');
-                localStorage.removeItem(SETTINGS_STORAGE_KEY);
+                deleteCookie(SETTINGS_STORAGE_KEY);
             }
         }
         setIsInitialized(true);
@@ -29,12 +30,20 @@ export const useGameSettings = () => {
 
     const saveSettings = (newSettings: GameSettings) => {
         setSettings(newSettings);
-        localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(newSettings));
+        const consent = getCookie('cookieConsent');
+        if (consent !== 'declined') {
+            setCookie(SETTINGS_STORAGE_KEY, JSON.stringify(newSettings), 30);
+        }
     };
 
     const resetSettings = () => {
         setSettings(DEFAULT_SETTINGS);
-        localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(DEFAULT_SETTINGS));
+        const consent = getCookie('cookieConsent');
+        if (consent !== 'declined') {
+            setCookie(SETTINGS_STORAGE_KEY, JSON.stringify(DEFAULT_SETTINGS), 30);
+        } else {
+            deleteCookie(SETTINGS_STORAGE_KEY);
+        }
     };
 
     return {

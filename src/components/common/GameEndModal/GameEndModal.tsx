@@ -26,10 +26,10 @@ const GameEndModal: React.FC<GameEndModalProps> = ({
                                                        onReturnToMenu,
                                                    }) => {
     const getResultIcon = () => {
-        if (isDraw) return '🤝';
-        if (winner === 'X') return '🎉';
-        if (winner === 'O') return '🏆';
-        return '✅';
+        if (isDraw) return 'Нічия';
+        if (winner === 'X') return 'X';
+        if (winner === 'O') return 'O';
+        return '✓';
     };
 
     const getResultTitle = () => {
