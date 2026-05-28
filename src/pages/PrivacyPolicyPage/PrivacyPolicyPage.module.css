@@ -1,0 +1,247 @@
+/* ─── Page container ─── */
+.policyPage {
+    max-width: 780px;
+    margin: 0 auto;
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Top bar ─── */
+.topBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.75rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.backBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1.1rem;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--color-primary, #4a6fa5), var(--color-secondary, #166088));
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(74, 111, 165, 0.3);
+}
+
+.backBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(74, 111, 165, 0.45);
+}
+
+.backBtn:active {
+    transform: scale(0.97);
+}
+
+.cookieSettingsBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1.1rem;
+    border: 2px solid #f59e0b;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #fffbeb, #fef3c7);
+    color: #92400e;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cookieSettingsBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.3);
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+}
+
+.cookieSettingsBtn:active {
+    transform: scale(0.97);
+}
+
+/* ─── Content card ─── */
+.policyCard {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 2rem 2.25rem;
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.06),
+        0 0 0 1px rgba(0, 0, 0, 0.03);
+}
+
+/* ─── Title ─── */
+.policyTitle {
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: #1a1a2e;
+    margin: 0 0 0.35rem;
+    letter-spacing: -0.02em;
+}
+
+.policyMeta {
+    font-size: 0.8rem;
+    color: #999;
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid #eee;
+}
+
+/* ─── Sections ─── */
+.section {
+    margin-bottom: 1.75rem;
+}
+
+.sectionTitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0 0 0.65rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--color-primary, #4a6fa5);
+    display: inline-block;
+}
+
+.sectionContent {
+    font-size: 0.88rem;
+    color: #555;
+    line-height: 1.7;
+}
+
+.sectionContent p {
+    margin-bottom: 0.6rem;
+}
+
+.sectionContent strong {
+    color: #333;
+}
+
+/* ─── Lists ─── */
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0;
+}
+
+.list li {
+    position: relative;
+    padding-left: 1.4rem;
+    margin-bottom: 0.45rem;
+    font-size: 0.86rem;
+    color: #555;
+    line-height: 1.55;
+}
+
+.list li::before {
+    content: '•';
+    position: absolute;
+    left: 0.25rem;
+    color: var(--color-primary, #4a6fa5);
+    font-weight: 700;
+    font-size: 1.1rem;
+    line-height: 1.35;
+}
+
+/* ─── Cookie table ─── */
+.cookieTable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0.75rem 0;
+    font-size: 0.82rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.cookieTable thead th {
+    background: linear-gradient(135deg, var(--color-primary, #4a6fa5), var(--color-secondary, #166088));
+    color: #fff;
+    padding: 0.65rem 0.85rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.cookieTable tbody td {
+    padding: 0.6rem 0.85rem;
+    border-bottom: 1px solid #eee;
+    color: #555;
+}
+
+.cookieTable tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.cookieTable tbody tr:nth-child(even) {
+    background: #f9fafb;
+}
+
+/* ─── Highlight boxes ─── */
+.availableBox,
+.unavailableBox {
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    margin: 0.5rem 0;
+}
+
+.availableBox {
+    background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+    border-left: 4px solid #10b981;
+}
+
+.unavailableBox {
+    background: linear-gradient(135deg, #fff5f5, #ffe8e8);
+    border-left: 4px solid #ef4444;
+}
+
+.availableBox .list li::before {
+    content: '✓';
+    font-size: 0.8rem;
+}
+
+.unavailableBox .list li::before {
+    content: 'X';
+    font-size: 0.8rem;
+}
+
+/* ─── Footer note ─── */
+.footerNote {
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid #eee;
+    font-size: 0.78rem;
+    color: #aaa;
+    text-align: center;
+    font-style: italic;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 640px) {
+    .policyCard {
+        padding: 1.25rem 1rem;
+        border-radius: 12px;
+    }
+
+    .policyTitle {
+        font-size: 1.3rem;
+    }
+
+    .cookieTable {
+        font-size: 0.75rem;
+    }
+
+    .cookieTable thead th,
+    .cookieTable tbody td {
+        padding: 0.45rem 0.55rem;
+    }
+}

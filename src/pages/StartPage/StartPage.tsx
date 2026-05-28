@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '../../components';
+import { useCookieConsent } from '../../hooks';
 import styles from './StartPage.module.css';
 
 interface StartPageProps {
@@ -13,6 +14,10 @@ const StartPage: React.FC<StartPageProps> = ({
                                                  onOpenSettings,
                                                  onOpenHistory
                                              }) => {
+    const { consent } = useCookieConsent();
+    const isSettingsDisabled = consent === 'declined';
+    const isHistoryDisabled = consent !== 'all';
+
     return (
         <div className={styles.startPage}>
             <div className={styles.hero}>
@@ -44,12 +49,16 @@ const StartPage: React.FC<StartPageProps> = ({
                         <Button
                             variant="secondary"
                             onClick={onOpenSettings}
+                            disabled={isSettingsDisabled}
+                            title={isSettingsDisabled ? "Налаштування недоступні при відхилених cookie" : undefined}
                         >
                             Налаштування
                         </Button>
                         <Button
                             variant="secondary"
                             onClick={onOpenHistory}
+                            disabled={isHistoryDisabled}
+                            title={isHistoryDisabled ? "Статистика та історія зберігаються лише при повному прийнятті cookie" : undefined}
                         >
                             Статистика ігор
                         </Button>

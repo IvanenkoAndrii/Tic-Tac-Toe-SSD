@@ -9,6 +9,7 @@ const Button: React.FC<ButtonProps> = ({
                                            size = 'medium',
                                            disabled = false,
                                            type = 'button',
+                                           title,
                                        }) => {
     const buttonClasses = [
         styles.button,
@@ -23,6 +24,7 @@ const Button: React.FC<ButtonProps> = ({
             className={buttonClasses}
             onClick={onClick}
             disabled={disabled}
+            title={title}
         >
             {children}
         </button>
