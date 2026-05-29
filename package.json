@@ -1,7 +1,8 @@
 {
   "name": "tic-tac-toe",
   "version": "1.0.0",
-  "private": true,
+  "license": "MIT",
+  "private": false,
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
@@ -42,6 +43,7 @@
   },
   "devDependencies": {
     "@types/react": "^19.2.7",
-    "@types/react-dom": "^19.2.3"
+    "@types/react-dom": "^19.2.3",
+    "license-checker": "^25.0.1"
   }
 }
