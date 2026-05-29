@@ -3,12 +3,12 @@ import styles from './Cell.module.css';
 import { CellProps } from '../../../types/game.types';
 
 const Cell: React.FC<CellProps> = ({
-                                       value,
-                                       row,
-                                       col,
-                                       onClick,
-                                       isWinningCell = false
-                                   }) => {
+    value,
+    row,
+    col,
+    onClick,
+    isWinningCell = false
+}) => {
     const handleClick = () => {
         onClick(row, col);
     };
@@ -37,8 +37,8 @@ const Cell: React.FC<CellProps> = ({
         >
             {value && (
                 <span className={styles.symbol}>
-          {value}
-        </span>
+                    {value}
+                </span>
             )}
         </button>
     );

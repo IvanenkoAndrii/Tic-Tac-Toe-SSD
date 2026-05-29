@@ -65,12 +65,12 @@ export const useGameStorage = () => {
         try {
             const updatedHistory = [...gameHistory, result];
             setGameHistory(updatedHistory);
-            
+
             const consent = getCookie('cookieConsent');
             if (consent === 'all') {
                 setCookie(STORAGE_KEY, JSON.stringify(updatedHistory), 30);
             }
-            
+
             updateStats(updatedHistory);
         } catch (error) {
             console.error('Помилка збереження результату гри:', error);

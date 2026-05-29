@@ -11,6 +11,23 @@ interface SettingsFormProps {
     onResetToDefault: () => void;
 }
 
+/**
+ * Форма налаштувань параметрів гри з валідацією через React Hook Form.
+ *
+ * Дозволяє змінити розмір ігрового поля. Валідує введені дані та 
+ * попереджає користувача, що зміни вплинуть лише на наступну гру.
+ * Надає кнопки для збереження, скасування або скидання до стандартних налаштувань.
+ *
+ * @param {Object} props - Пропси компонента.
+ * @param {GameSettings} props.initialSettings - Початкові значення полів форми.
+ * @param {Function} props.onSubmit - Функція, що викликається при успішній відправці форми.
+ * @param {Function} props.onCancel - Функція скасування та закриття форми без збереження.
+ * @param {Function} props.onResetToDefault - Функція скидання налаштувань до стандартних.
+ * @returns {JSX.Element} Елемент форми `<form>`.
+ *
+ * @requires module:react-hook-form
+ * @requires module:SettingsForm.module.css
+ */
 const SettingsForm: React.FC<SettingsFormProps> = ({
                                                        initialSettings,
                                                        onSubmit,
