@@ -1,46 +1,70 @@
-# Getting Started with Create React App
+# ❌⭕ Tic-Tac-Toe Game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Tic-Tac-Toe Game** is an interactive web application designed to play the classic Tic-Tac-Toe game with customizable settings and detailed statistics. This project was developed as part of the **"Component-Oriented Programming" (COP)** university course. It demonstrates modern UI development practices, robust state management, and strict adherence to privacy standards (GDPR).
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Author
+* **Student:** Ivanenko Andrii
+* **Group:** IPZ-23-5
+* **University Year:** 2026
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 🛠 Tech Stack
+* **Framework:** [React 19](https://react.dev/) + TypeScript
+* **State Management:** Custom React Hooks / Context (e.g., `useGameLogic`, `useGameStorage`)
+* **Form Handling:** [React Hook Form](https://react-hook-form.com/)
+* **Styling:** CSS Modules & Global CSS
+* **Build Tool:** Create React App
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
+Ensure you have [Node.js](https://nodejs.org/) installed on your machine.
 
-### `npm run build`
+### Installation
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Run in Development Mode
+```bash
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Build for Production
+```bash
+npm run build
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Project Requirements Checklist
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 1. License & Compliance
+The project is officially distributed under the **MIT License**.
+* **Audit:** A full dependency license audit was performed using `license-checker`.
+* **Audit Report:** [`license-report.txt`](./license-report.txt)
+* **License Text:** [`LICENSE`](./LICENSE)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 2. Cookie Popup & GDPR
+Implemented a custom **Cookie Consent Banner** to ensure transparency and user control.
+* **Compliance:** Statistics and game results are recorded in cookies **only** if the user provides explicit "all" consent.
+* **Storage:** Uses custom cookie management helpers with standard session policies.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 3. Privacy Policy & Manual
+A comprehensive document outlining data handling, user rights under GDPR, and technical instructions.
+* **Document:** [`PRIVACY_POLICY.md`](./PRIVACY_POLICY.md)
+* **In-app Access:** Users can view the policy and reset their consent at the Privacy Policy screen in the application.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
+## ⚖️ Legal & Liability
+This software is provided "as is", without warranty of any kind. All data processing (authentication, settings, and scores) occurs strictly on the client-side within the user's browser (Cookies). No data is transmitted to external servers.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Created for educational purposes @ 2026
