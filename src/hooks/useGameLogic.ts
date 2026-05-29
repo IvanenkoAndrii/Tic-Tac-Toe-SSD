@@ -197,14 +197,14 @@ export const useGameLogic = (settings: GameSettings = DEFAULT_SETTINGS) => {
             O: { wins: 0, losses: 0, draws: 0, totalMoves: 0 },
         };
         setPlayerStats(emptyStats);
-        
+
         const consent = getCookie('cookieConsent');
         if (consent === 'all') {
             setCookie(PLAYER_STATS_STORAGE_KEY, JSON.stringify(emptyStats), 30);
         } else {
             deleteCookie(PLAYER_STATS_STORAGE_KEY);
         }
-        
+
         restartGame();
     }, [restartGame]);
 

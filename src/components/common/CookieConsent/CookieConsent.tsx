@@ -7,6 +7,23 @@ interface CookieConsentProps {
   onOpenPrivacyPolicy: () => void;
 }
 
+/**
+ * Банер згоди на використання файлів Cookie (GDPR).
+ *
+ * З'являється при першому візиті користувача або якщо згода не збережена.
+ * Дозволяє вибрати рівень приватності:
+ * - Тільки необхідні (відхилити всі).
+ * - Лише функціональні (збереження налаштувань).
+ * - Дозволити всі (включаючи збереження історії ігор та статистики).
+ *
+ * @param {Object} props - Пропси компонента.
+ * @param {Function} props.onConsent - Колбек, що викликається при виборі опції. Передає `CookieConsentType`.
+ * @param {Function} props.onOpenPrivacyPolicy - Колбек для відкриття сторінки політики конфіденційності.
+ * @returns {JSX.Element} Контейнер з банером згоди.
+ *
+ * @requires module:useCookieConsent
+ * @requires module:CookieConsent.module.css
+ */
 const CookieConsent: React.FC<CookieConsentProps> = ({ onConsent, onOpenPrivacyPolicy }) => {
   return (
     <div className={styles.overlay} role="dialog" aria-modal="true" aria-labelledby="cookie-title">

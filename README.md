@@ -60,6 +60,31 @@ A comprehensive document outlining data handling, user rights under GDPR, and te
 * **Document:** [`PRIVACY_POLICY.md`](./PRIVACY_POLICY.md)
 * **In-app Access:** Users can view the policy and reset their consent at the Privacy Policy screen in the application.
 
+### 4. Storybook
+A dedicated environment for isolated component development, documentation, and interactive testing.
+* **Base Components:** 
+  * `Button` (with controls for sizes, variants, disabled states, and custom labels).
+  * `Cell` (interactive grid cell rendering X, O, empty, and winning highlight states).
+* **Complex Components:** 
+  * `Board` (supporting dynamic sizes 3x3, 4x4, 5x5, custom grid layouts, and highlighted winning cell combinations).
+  * `Modal` (overlay component with dynamic content and footers).
+  * `GameInfo` (statistics panel: shows current turn, player scores, and win/draw messages).
+  * `GameEndModal` (game results modal with statistics and restart buttons).
+* **Command to run:**
+```bash
+npm run storybook
+```
+
+### 5. Generated Documentation
+Automatically generated documentation using **TypeDoc**. It describes all components, types, interfaces, and React hooks in the project based on static code analysis.
+* **Tool:** TypeDoc (generates an HTML website).
+* **Configuration:** [`typedoc.json`](./typedoc.json)
+* **Output Directory:** `docs/`
+* **How to run generation:**
+```bash
+npm run docs
+```
+
 ---
 
 ## ⚖️ Legal & Liability

@@ -18,6 +18,28 @@ interface GameInfoProps {
     isSettingsDisabled?: boolean;
 }
 
+/**
+ * Інформаційна панель поточного стану гри.
+ *
+ * Відображає, чий зараз хід, або повідомлення про перемогу чи нічию.
+ * Також показує номер поточного ходу та кнопки управління грою (Нова гра,
+ * Скинути статистику, Налаштування).
+ * Стан кнопки налаштувань залежить від згоди користувача на використання cookie.
+ *
+ * @param {Object} props - Пропси компонента.
+ * @param {Player} props.currentPlayer - Гравець, чий зараз хід.
+ * @param {Player | null} props.winner - Переможець (або `null`).
+ * @param {boolean} props.isDraw - Чи завершилась гра нічиєю.
+ * @param {number} props.moveCount - Кількість зроблених ходів.
+ * @param {Object} props.playerStats - Статистика обох гравців.
+ * @param {Function} props.onRestart - Колбек для перезапуску гри.
+ * @param {Function} [props.onResetStats] - Опціональний колбек скидання статистики.
+ * @param {Function} [props.onSettingsOpen] - Опціональний колбек відкриття налаштувань.
+ * @param {boolean} [props.isSettingsDisabled] - Чи заблокована кнопка налаштувань.
+ * @returns {JSX.Element} Панель з інформацією та кнопками.
+ *
+ * @requires module:GameInfo.module.css
+ */
 const GameInfo: React.FC<GameInfoProps> = ({
                                                currentPlayer,
                                                winner,

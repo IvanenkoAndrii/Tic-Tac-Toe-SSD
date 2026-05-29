@@ -3,14 +3,14 @@ import styles from './Button.module.css';
 import { ButtonProps } from '../../../types/game.types';
 
 const Button: React.FC<ButtonProps> = ({
-                                           children,
-                                           onClick,
-                                           variant = 'primary',
-                                           size = 'medium',
-                                           disabled = false,
-                                           type = 'button',
-                                           title,
-                                       }) => {
+    children,
+    onClick,
+    variant = 'primary',
+    size = 'medium',
+    disabled = false,
+    type = 'button',
+    title,
+}) => {
     const buttonClasses = [
         styles.button,
         styles[variant],

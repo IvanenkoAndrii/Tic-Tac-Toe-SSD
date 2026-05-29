@@ -1,0 +1,12 @@
+{
+  "entryPoints": ["src/index.tsx", "src/components", "src/hooks", "src/types", "src/utils"],
+  "entryPointStrategy": "expand",
+  "out": "docs",
+  "name": "Tic-Tac-Toe Game API Documentation",
+  "includeVersion": true,
+  "disableSources": false,
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeInternal": true,
+  "readme": "none"
+}

@@ -43,7 +43,7 @@ export const useCookieConsent = (): UseCookieConsentReturn => {
   const setConsent = useCallback((type: CookieConsentType) => {
     setConsentState(type);
     window.dispatchEvent(new CustomEvent(CONSENT_EVENT, { detail: type }));
-    
+
     if (type === null) {
       deleteCookie(CONSENT_KEY);
       deleteCookie(CONSENT_DATE_KEY);
